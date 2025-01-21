@@ -145,9 +145,6 @@
                             <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
                     </div>
-                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
 
                     <!-- Profile Image and Name -->
                     <a class="nav-link d-flex align-items-center" href="#">
@@ -164,5 +161,14 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ensure Bootstrap dropdown works with Livewire re-renders
+            var dropdownElements = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            dropdownElements.forEach(function (dropdown) {
+                new bootstrap.Dropdown(dropdown);
+            });
+        });
+    </script>
 </body>
 </html>

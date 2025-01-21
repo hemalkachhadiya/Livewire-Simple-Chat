@@ -54,7 +54,7 @@ class Authentication extends Component
 
          if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             session()->flash('success', 'You have successfully logged in!');
-            $this->redirect('/todos',navigate: true);
+            $this->redirect('/ChatApp',navigate: true);
 
         } else {
             session()->flash('error', 'Invalid credentials!');
